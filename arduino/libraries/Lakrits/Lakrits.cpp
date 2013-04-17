@@ -125,7 +125,7 @@ void Lakrits::clearOBuffer() {
 boolean Lakrits::processOBuffer()
 {
 	if(oBufferLen > 0) {
-		Serial.print(oBuffer[0]);
+		Serial.write(oBuffer[0]);
 		shiftOBuffer(1);
 		return true;
 	}
