@@ -21,7 +21,7 @@ class Application < Sinatra::Base
     msg = { 
       :recipient_id => 2,  # The hard coded ID of the door opener Arduino.
       :message_type => 1,  # Sending an open command
-      :data => [1]       # The duration of the 'button press' in multiples of 100ms (255 is the highest allowed value)
+      :data => [10]       # The duration of the 'button press' in multiples of 100ms (255 is the highest allowed value)
     }
 
     $lakrits.deliver msg
