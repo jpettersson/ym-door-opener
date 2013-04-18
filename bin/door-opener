@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
+system 'sudo ln /dev/tty.usbmodemfa131 /dev/cuaa0'
+
 current_dir = File.expand_path(File.dirname(__FILE__))
 base_dir = current_dir + '/../lib'
 $: << base_dir unless $:.include?(base_dir) 
