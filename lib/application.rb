@@ -4,8 +4,10 @@ require 'lakrits'
 require 'sass'
 require 'compass'
 
-Lakrits::Log.level = Lakrits::Log::WARNING
-$lakrits = Lakrits.new
+unless $webOnly
+  Lakrits::Log.level = Lakrits::Log::WARNING
+  $lakrits = Lakrits.new
+end
 
 class Application < Sinatra::Base
 
@@ -36,7 +38,7 @@ class Application < Sinatra::Base
       :data => [30]       # The duration of the 'button press' in multiples of 100ms (255 is the highest allowed value)
     }
 
-    $lakrits.deliver msg
+    $lakrits.deliver msg if $lakrits
   end
 
   get '/app.css' do
