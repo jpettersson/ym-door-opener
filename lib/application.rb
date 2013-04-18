@@ -31,7 +31,8 @@ class Application < Sinatra::Base
   end
 
   def open_door
-    puts "Opening door.."
+    puts "#{Time.now} - #{request.ip}: Opening door!"
+    
     msg = { 
       :recipient_id => 2,  # The hard coded ID of the door opener Arduino.
       :message_type => 1,  # Sending an open command
