@@ -2,8 +2,11 @@
 %html
   %head
     %title Your Majesty's Royal Door-opener
-    %link{:href=>"/app.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+    %link{:href=>"/app.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
   %body
-    %h1 Click the button to win!
+    %h1
+      %span{:'aria-hidden' => 'true', :class => 'icon-ym-logo'}
     %form{:method => 'post'}
-      %button Open door!
+      %button
+        %span{:'aria-hidden' => 'true', :class => 'icon-locked'}
