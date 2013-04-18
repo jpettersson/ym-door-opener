@@ -1,0 +1,28 @@
+body {
+  font-size: 12px;
+  position: relative;
+
+  h1 {
+    font-weight: normal;
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  button {
+    width: 130px;
+    padding: 1em;
+    background: #000;
+    border: none;
+    color: #fff;
+    
+    &:active {
+      background: #ff00ff;
+    }
+  }
+}
