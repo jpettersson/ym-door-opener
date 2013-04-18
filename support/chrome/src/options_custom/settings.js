@@ -1,24 +1,25 @@
 window.addEvent("domready", function () {
     // Option 1: Use the manifest:
-    new FancySettings.initWithManifest(function (settings) {
-        settings.manifest.myButton.addEvent("action", function () {
-            alert("You clicked me!");
-        });
-    });
+    // new FancySettings.initWithManifest(function (settings) {
+    //     settings.manifest.myButton.addEvent("action", function () {
+    //         alert("You clicked me!");
+    //     });
+    // });
     
     // Option 2: Do everything manually:
-    /*
-    var settings = new FancySettings("My Extension", "icon.png");
+    
+    var settings = new FancySettings("Your Majesty's Royal Door-opener", "icon.png");
     
     var username = settings.create({
-        "tab": i18n.get("information"),
-        "group": i18n.get("login"),
-        "name": "username",
+        "tab": "server",
+        "group": "server",
+        "name": "url",
         "type": "text",
-        "label": i18n.get("username"),
-        "text": i18n.get("x-characters")
+        "label": "URL",
+        "text": "http://172.16.1.65:9292"
     });
     
+    /*
     var password = settings.create({
         "tab": i18n.get("information"),
         "group": i18n.get("login"),

@@ -40,7 +40,7 @@
                     value = null;
                 }
             }
-            
+            console.log("store." + this.name + "." + name);
             localStorage.setItem("store." + this.name + "." + name, value);
         }
         
