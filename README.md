@@ -1,4 +1,18 @@
 ym-door-opener
 ==============
 
-A small Sinatra app for opening the Your Majesty office door using an Arduino &amp; Relay shield
+Start service
+-------------
+
+```
+$ screen ./bin/door-opener
+Then press: ctrl + a + d
+```
+
+Stop service
+------------
+
+```
+$ screen -r
+Then press: ctrl + c
+```
