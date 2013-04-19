@@ -1,6 +1,24 @@
 @import 'compass';
 @include global-reset;
 
+* { 
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @font-face {
   font-family: 'icomoon';
   src:url('icomoon.eot');
@@ -12,25 +30,7 @@
   font-style: normal;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-  font-family: 'icomoon';
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"] {
-*/
-.icon-ym-logo, .icon-locked, .icon-unlocked {
+.icon-ym-logo, .icon-lock {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -43,60 +43,125 @@ you can use the generic selector below, but it's slower:
 .icon-ym-logo:before {
   content: "\28";
 }
-.icon-locked:before {
+.icon-lock:before {
   content: "\21";
-}
-.icon-unlocked:before {
-  content: "\22";
 }
 
 html, body {
   width: 100%;
   height: 100%;
+  min-height: 1050px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
   background: #222;
   color: #fff;
   font-size: 12px;
-  position: relative;
+  text-align: center;
 
-  @include background(radial-gradient(#222, #111 1000px));
+  @include background(linear-gradient(top, #eeeeee, #cecdd5));
 
-  h1 {
-    font-size: 15em;
+  .icon-ym-logo {
     width: 100%;
-    text-align: center;
-    font-style: italic;
-    padding: 30px 0 0px 0;
-    text-shadow: 0 0 20px #000;
-  }
-
-  form {
-    text-align: center;
+    height: 85px;
+    display: block;
+    font-size: 85px;
+    position: absolute;
+    top: 300px;
+    color: #d7d6de;
+    text-shadow: 0 1px 0 rgba(#fff, .6), 0 -1px 0 rgba(#bebfc4, .8);
   }
 
   .button {
-    width: 180px;
-    height: 180px;
-    background: #fff;
-    border: none;
-    color: #999;
-    font-size: 100px;
-    line-height: 200px;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
-    cursor: pointer;
+    position: absolute;
+    top: 605px;
+    left: 50%;
+    margin-left: -169px;
+    width: 338px;
+    height: 338px;
 
-    @include transition-property(color);
-    @include transition-duration(300ms);
-    @include border-radius(50%);
-    
-    &.open {
-      color: #5c00e5
+    @include background(linear-gradient(top, #d5d3dc, #e2e1e7));
+    @include box-shadow(inset 0 1px 0 rgba(#bebfc4, .4), 0 2px 0 rgba(#fff, .48));
+    @include border-radius(169px);
+
+    &:active:before {
+      @include box-shadow(inset 0 2px 1px rgba(#fff, .4), 0 2px 8px rgba(#18142f, .48));
     }
+
+    &:before {
+      content: "";
+      width: 264px;
+      height: 264px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -132px;
+      margin-top: -132px;
+      background: #f00;
+
+      @include background(linear-gradient(top, #e2e1e7, #b8b6c2));
+      @include box-shadow(inset 0 2px 1px rgba(#fff, .4), 0 12px 20px rgba(#18142f, .5));
+      @include border-radius(132px);
+    }
+
+    .spinner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 338px;
+      height: 338px;
+      background: url(spinner.png) center center no-repeat;
+      display: none;
+      -webkit-animation-name:             spinner; 
+      -webkit-animation-duration:         0.5s; 
+      -webkit-animation-iteration-count:  infinite;
+      -webkit-animation-timing-function: linear;
+    }
+
+    .icon-lock {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 338px;
+      font-size: 190px;
+      z-index: 1;
+      background: -webkit-linear-gradient(#604d83, #8268b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @include transition-property(all);
+      @include transition-duration(400ms);
+
+      &:nth-child(2) {
+        margin-top: 1px;
+        background: transparent;
+        -webkit-text-fill-color: #fff;
+        z-index: 0;
+      }
+    }
+
+    &.loading {
+      .spinner {
+        display: block;
+      }
+
+      .icon-lock {
+        display: none;
+      }
+    }
+
+    &.open {
+      .icon-lock {
+        background: -webkit-linear-gradient(#26807d, #36b2a7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
   }
 }
