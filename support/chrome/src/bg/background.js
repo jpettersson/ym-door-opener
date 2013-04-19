@@ -13,18 +13,9 @@ chrome.extension.onMessage.addListener(
   });
 
 chrome.browserAction.onClicked.addListener(function(){
-
-  url = localStorage.getItem('store.settings.url')
-  
-  if(url.length == 2) {
-    url = "http://172.16.1.65:9292/open"
-  }else{
-    url = url.replace(/"/g,'');
-  }
-
   $.ajax({
     type: "POST",
-    url: url,
+    url: "http://172.16.1.65:9292/open",
     data: {},
   });
 });

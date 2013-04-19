@@ -1,6 +1,6 @@
 {
-  "name": "Your Majesty's Royal Door-opener",
-  "version": "0.0.1",
+  "name": "Your Majesty's Royal Door Opener",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "Will open the door",
   "homepage_url": "http://your-majesty.com",
@@ -20,6 +20,7 @@
     "default_title": "Open Door!"
   },
   "permissions": [
-    "http://*/"
+    "http://*/",
+    "storage"
   ]
 }
