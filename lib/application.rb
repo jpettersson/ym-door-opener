@@ -25,6 +25,10 @@ class Application < Sinatra::Base
     haml :index
   end
 
+  post '/' do
+    haml :index
+  end
+
   post '/open' do
     open_door
     haml :index
