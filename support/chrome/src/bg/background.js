@@ -17,7 +17,7 @@ chrome.browserAction.onClicked.addListener(function(){
   url = localStorage.getItem('store.settings.url')
   
   if(url.length == 2) {
-    url = "http://172.16.1.65:9292"
+    url = "http://172.16.1.65:9292/open"
   }else{
     url = url.replace(/"/g,'');
   }
