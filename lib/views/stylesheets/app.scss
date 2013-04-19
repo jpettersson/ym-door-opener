@@ -64,20 +64,28 @@ body {
 
   @include background(linear-gradient(top, #eeeeee, #cecdd5));
 
+  section {
+    width: 100%;
+    height: 645px;
+    position: absolute;
+    top: 50%;
+    margin-top: -330px;
+  }
+
   .icon-ym-logo {
     width: 100%;
     height: 85px;
     display: block;
     font-size: 85px;
     position: absolute;
-    top: 300px;
+    top: 0;
     color: #d7d6de;
     text-shadow: 0 1px 0 rgba(#fff, .6), 0 -1px 0 rgba(#bebfc4, .8);
   }
 
   .button {
     position: absolute;
-    top: 605px;
+    top: 305px;
     left: 50%;
     margin-left: -169px;
     width: 338px;
