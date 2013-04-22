@@ -13,9 +13,15 @@ chrome.extension.onMessage.addListener(
   });
 
 chrome.browserAction.onClicked.addListener(function(){
+  chrome.browserAction.setIcon({path: "/icons/icon_19_active.png"});
   $.ajax({
     type: "POST",
     url: "http://172.16.1.65:9292/open",
     data: {},
+    complete: function() {
+      setTimeout(function(){
+        chrome.browserAction.setIcon({path: "/icons/icon_19.png"});
+      }, 3000);
+    },
   });
 });
