@@ -13,6 +13,8 @@ chrome.extension.onMessage.addListener(
   });
 
 chrome.browserAction.onClicked.addListener(function(){
+  //console.log(localStorage.getItem('store.settings.username'));
+
   chrome.browserAction.setIcon({path: "/icons/icon_19_active.png"});
   $.ajax({
     type: "POST",
@@ -24,4 +26,16 @@ chrome.browserAction.onClicked.addListener(function(){
       }, 3000);
     },
   });
+
+  // $.ajax({
+  //   type: "POST",
+  //   url: "http://172.16.1.65:3000/save",
+  //   data: {
+  //     username: localStorage.getItem('store.settings.username')
+  //   },
+  //   complete: function() {
+      
+  //   },
+  // });
+
 });

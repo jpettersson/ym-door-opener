@@ -10,13 +10,22 @@ window.addEvent("domready", function () {
     
     var settings = new FancySettings("Your Majesty's Royal Door-opener", "icon.png");
     
-    var username = settings.create({
+    var server = settings.create({
         "tab": "server",
         "group": "server",
         "name": "url",
         "type": "text",
         "label": "URL",
         "text": "http://172.16.1.65:9292"
+    });
+
+    var username = settings.create({
+        "tab": "server",
+        "group": "server",
+        "name": "username",
+        "type": "text",
+        "label": "User",
+        "text": "Theo"
     });
     
     /*
