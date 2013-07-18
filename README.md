@@ -1,18 +1,10 @@
-ym-door-opener
+Your Majesty's Royal door opener
 ==============
 
-Start service
--------------
+Opens Your Majesty's front door. Built using Sinatra and Arduino.
 
-```
-$ screen ./bin/door-opener
-Then press: ctrl + a + d
-```
+This project is forked and maintained by Your Majesty:
+https://github.com/Your-Majesty/
 
-Stop service
-------------
-
-```
-$ screen -r
-Then press: ctrl + c
-```
+More information (and an awesome video):
+http://your-majesty.com/tools/gate/
